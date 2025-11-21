@@ -19,36 +19,41 @@
     {
         <div class="row">
             <div class="col-lg-8 col-md-12 mb-4 mb-lg-0">
-                <div class="card">
+                <div class="card cart-items-card">
                     <div class="card-body">
                         <h5 class="card-title mb-4">Cart Items</h5>
                         @foreach (var item in CurrentCart.Items)
                         {
-                            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center mb-3 pb-3 border-bottom">
-                                <div class="flex-grow-1 mb-2 mb-sm-0">
-                                    <h6 class="mb-1">@item.ProductName</h6>
-                                    <p class="text-muted mb-0">@item.UnitPrice.ToString("C") each</p>
+                            <div class="cart-item">
+                                <div class="cart-item-info">
+                                    <span class="cart-item-name">@item.ProductName</span>
+                                    <span class="cart-item-meta">@item.UnitPrice.ToString("C") each</span>
                                 </div>
-                                <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-2 w-100 w-sm-auto">
-                                    <div class="input-group" style="max-width: 150px; width: 100%;">
-                                        <button class="btn btn-outline-secondary btn-sm" type="button" @onclick="() => UpdateQuantity(item.ProductId, item.Quantity - 1)" disabled="@IsUpdating">-</button>
-                                        <input type="number" class="form-control text-center" value="@item.Quantity" readonly />
-                                        <button class="btn btn-outline-secondary btn-sm" type="button" @onclick="() => UpdateQuantity(item.ProductId, item.Quantity + 1)" disabled="@IsUpdating">+</button>
-                                    </div>
-                                    <div class="text-start text-sm-end" style="min-width: 100px;">
-                                        <strong>@item.Subtotal.ToString("C")</strong>
-                                    </div>
-                                    <button class="btn btn-outline-danger btn-sm" @onclick="() => RemoveItem(item.ProductId)" disabled="@IsRemoving">
-                                        Remove
+                                <div class="quantity-control" role="group" aria-label="Quantity controls for @item.ProductName">
+                                    <button class="quantity-btn" type="button" @onclick="() => UpdateQuantity(item.ProductId, item.Quantity - 1)" disabled="@IsUpdating">
+                                        <span class="visually-hidden">Decrease quantity</span>
+                                        <span aria-hidden="true">−</span>
+                                    </button>
+                                    <span class="quantity-value">@item.Quantity</span>
+                                    <button class="quantity-btn" type="button" @onclick="() => UpdateQuantity(item.ProductId, item.Quantity + 1)" disabled="@IsUpdating">
+                                        <span class="visually-hidden">Increase quantity</span>
+                                        <span aria-hidden="true">+</span>
                                     </button>
                                 </div>
+                                <div class="cart-item-total text-sm-end">
+                                    <span class="cart-item-total-label">Subtotal</span>
+                                    <strong>@item.Subtotal.ToString("C")</strong>
+                                </div>
+                                <button class="btn btn-outline-danger cart-remove-btn" type="button" @onclick="() => RemoveItem(item.ProductId)" disabled="@IsRemoving">
+                                    Remove
+                                </button>
                             </div>
                         }
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-12">
-                <div class="card sticky-top" style="top: 80px;">
+                <div class="card sticky-top cart-summary-card" style="top: 80px;">
                     <div class="card-body">
                         <h5 class="card-title mb-4">Summary</h5>
                         <div class="d-flex justify-content-between mb-2">
