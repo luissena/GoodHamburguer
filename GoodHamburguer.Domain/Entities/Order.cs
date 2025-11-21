@@ -1,5 +1,4 @@
 using GoodHamburguer.Domain.Exceptions;
-using GoodHamburguer.Domain.ValueObjects;
 
 namespace GoodHamburguer.Domain.Entities;
 

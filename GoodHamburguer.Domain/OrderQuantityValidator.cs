@@ -1,5 +1,5 @@
 using GoodHamburguer.Domain.Entities;
-using GoodHamburguer.Domain.ValueObjects;
+using GoodHamburguer.Domain.Common;
 
 namespace GoodHamburguer.Domain;
 

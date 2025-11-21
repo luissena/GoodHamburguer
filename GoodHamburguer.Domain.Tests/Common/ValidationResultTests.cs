@@ -1,7 +1,7 @@
-using GoodHamburguer.Domain.ValueObjects;
+using GoodHamburguer.Domain.Common;
 using Xunit;
 
-namespace GoodHamburguer.Domain.Tests.ValueObjects;
+namespace GoodHamburguer.Domain.Tests.Common;
 
 public class ValidationResultTests
 {

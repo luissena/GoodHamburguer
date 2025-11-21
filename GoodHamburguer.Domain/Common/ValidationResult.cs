@@ -1,4 +1,4 @@
-namespace GoodHamburguer.Domain.ValueObjects;
+namespace GoodHamburguer.Domain.Common;
 
 public class ValidationResult
 {
