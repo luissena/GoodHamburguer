@@ -30,7 +30,7 @@ GoodHamburguer/
 ├── GoodHamburguer.Domain/        # Domain Layer (Business Logic)
 │   ├── Entities/                # Domain entities (Cart, Product, Order, Discount, etc.)
 │   ├── Repositories/             # Repository interfaces
-│   ├── ValueObjects/            # Value objects (ValidationResult)
+│   ├── Common/                  # Common types (ValidationResult)
 │   ├── Configuration/           # Default configurations (quantity rules)
 │   ├── Exceptions/              # Domain exceptions
 │   └── OrderQuantityValidator.cs # Validator for quantity rules
@@ -38,7 +38,7 @@ GoodHamburguer/
 └── GoodHamburguer.Domain.Tests/  # Unit Tests
     ├── Entities/                 # Entity tests
     ├── Configuration/            # Configuration tests
-    └── ValueObjects/             # Value object tests
+    └── Common/                   # Common type tests
 ```
 
 ### Project Components
@@ -64,7 +64,7 @@ The client layer contains:
 The domain layer contains:
 - **Entities**: Core business entities with business logic
 - **Repositories**: Repository interfaces (contracts)
-- **ValueObjects**: Immutable value objects
+- **Common**: Common domain types (e.g., ValidationResult)
 - **Configuration**: Default system configurations
 - **Exceptions**: Domain-specific exceptions
 
@@ -104,7 +104,7 @@ GoodHamburguer/
 ├── GoodHamburguer.Domain/        # Camada de Domínio (Lógica de Negócio)
 │   ├── Entities/                # Entidades de domínio (Cart, Product, Order, Discount, etc.)
 │   ├── Repositories/            # Interfaces de repositório
-│   ├── ValueObjects/            # Objetos de valor (ValidationResult)
+│   ├── Common/                  # Tipos comuns (ValidationResult)
 │   ├── Configuration/           # Configurações padrão (regras de quantidade)
 │   ├── Exceptions/              # Exceções de domínio
 │   └── OrderQuantityValidator.cs # Validador de regras de quantidade
@@ -112,7 +112,7 @@ GoodHamburguer/
 └── GoodHamburguer.Domain.Tests/  # Testes Unitários
     ├── Entities/                 # Testes de entidades
     ├── Configuration/            # Testes de configuração
-    └── ValueObjects/             # Testes de objetos de valor
+    └── Common/                   # Testes de tipos comuns
 ```
 
 ### Componentes do Projeto
@@ -138,7 +138,7 @@ A camada de cliente contém:
 A camada de domínio contém:
 - **Entities**: Entidades de negócio principais com lógica de negócio
 - **Repositories**: Interfaces de repositório (contratos)
-- **ValueObjects**: Objetos de valor imutáveis
+- **Common**: Tipos comuns do domínio (ex: ValidationResult)
 - **Configuration**: Configurações padrão do sistema
 - **Exceptions**: Exceções específicas do domínio
 
