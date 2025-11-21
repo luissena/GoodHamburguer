@@ -1,5 +1,9 @@
 # Project Structure / Estrutura do Projeto
 
+**Quick Navigation / Navegação Rápida:** [English](#english) | [Português](#português)
+
+---
+
 ## English
 
 ### Overview

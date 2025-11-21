@@ -1,5 +1,9 @@
 # API Documentation (Swagger) / Documentação da API (Swagger)
 
+**Quick Navigation / Navegação Rápida:** [English](#english) | [Português](#português)
+
+---
+
 ## English
 
 ### Overview

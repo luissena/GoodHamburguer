@@ -1,5 +1,9 @@
 # Discount System / Sistema de Descontos
 
+**Quick Navigation / Navegação Rápida:** [English](#english) | [Português](#português)
+
+---
+
 ## English
 
 ### Overview

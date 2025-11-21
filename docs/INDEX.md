@@ -1,5 +1,9 @@
 # Documentation Index / Índice de Documentação
 
+**Quick Navigation / Navegação Rápida:** [English](#english) | [Português](#português)
+
+---
+
 ## English
 
 Welcome to the GoodHamburguer documentation! This folder contains detailed documentation about the project.

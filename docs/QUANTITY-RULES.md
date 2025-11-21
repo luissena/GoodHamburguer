@@ -1,5 +1,9 @@
 # Flexible Quantity Rules / Regras de Quantidade Flexíveis
 
+**Quick Navigation / Navegação Rápida:** [English](#english) | [Português](#português)
+
+---
+
 ## English
 
 ### Overview

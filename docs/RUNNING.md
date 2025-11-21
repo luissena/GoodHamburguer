@@ -1,5 +1,9 @@
 # Running the Project / Como Executar o Projeto
 
+**Quick Navigation / Navegação Rápida:** [English](#english) | [Português](#português)
+
+---
+
 ## English
 
 ### Prerequisites
