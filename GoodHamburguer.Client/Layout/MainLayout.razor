@@ -1,8 +1,9 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    <div class="sidebar @(IsMenuOpen ? "show" : "")">
-        <NavMenu />
+    <div class="sidebar  d-lg-block @(IsMenuOpen ? "show" : "")">
+        <h4 class="p-3 text-center">GoodHamburger</h4>
+        <NavMenu/>
     </div>
 
     <main>
@@ -10,14 +11,14 @@
             <button class="menu-toggle" @onclick="ToggleMenu" aria-label="Toggle menu">
                 <span>☰</span>
             </button>
-            <h4 class="mb-0">GoodHamburguer</h4>
+            <h4 class="mb-0 d-lg-none mx-auto">GoodHamburger</h4>
         </div>
 
         <article class="content">
             @Body
         </article>
     </main>
-    
+
     @if (IsMenuOpen)
     {
         <div class="sidebar-overlay" @onclick="CloseMenu"></div>

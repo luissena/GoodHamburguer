@@ -69,14 +69,12 @@ a:hover,
     position: fixed;
     top: 0;
     left: 0;
-    padding-top: 60px;
     transition: transform 0.3s ease-in-out;
     z-index: 1000;
 }
 
 main {
     flex: 1;
-    margin-left: 250px;
     transition: margin-left 0.3s ease-in-out;
 }
 
