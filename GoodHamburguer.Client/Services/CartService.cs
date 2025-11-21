@@ -1,6 +1,7 @@
 using System.Net.Http.Json;
 using System.Text.Json;
 using GoodHamburguer.Client.Models;
+using GoodHamburguer.Client.Services.Abstractions;
 
 namespace GoodHamburguer.Client.Services;
 

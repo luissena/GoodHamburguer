@@ -1,6 +1,6 @@
 using GoodHamburguer.Client.Models;
 
-namespace GoodHamburguer.Client.Services;
+namespace GoodHamburguer.Client.Services.Abstractions;
 
 public interface IProductService
 {
@@ -9,4 +9,5 @@ public interface IProductService
     Task<IEnumerable<ProductDto>> GetAllProductsAsync(CancellationToken cancellationToken = default);
     Task<ProductDto?> GetProductByIdAsync(Guid id, CancellationToken cancellationToken = default);
 }
+
 

@@ -1,4 +1,4 @@
-namespace GoodHamburguer.Client.Services;
+namespace GoodHamburguer.Client.Services.Abstractions;
 
 public interface ICartStateService
 {
@@ -6,4 +6,5 @@ public interface ICartStateService
     void SetCurrentCartId(Guid cartId);
     void ClearCart();
 }
+
 

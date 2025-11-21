@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using GoodHamburguer.Client.Models;
-using GoodHamburguer.Client.Services;
+using GoodHamburguer.Client.Services.Abstractions;
 
 namespace GoodHamburguer.Client.Pages;
 
