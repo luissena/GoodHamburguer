@@ -1,6 +1,7 @@
 using GoodHamburguer.Api.Data;
 using GoodHamburguer.Domain.Configuration;
 using GoodHamburguer.Domain.Repositories;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 namespace GoodHamburguer.Api.Extensions;
 
@@ -33,6 +34,41 @@ public static class WebApplicationExtensions
     public static WebApplication UseConfiguredCors(this WebApplication app)
     {
         app.UseCors(ServiceCollectionExtensions.AllowBlazorClientPolicy);
+        return app;
+    }
+
+    public static WebApplication MapHealthChecks(this WebApplication app)
+    {
+        app.MapHealthChecks("/health", new HealthCheckOptions
+        {
+            ResponseWriter = async (context, report) =>
+            {
+                context.Response.ContentType = "application/json";
+                var result = System.Text.Json.JsonSerializer.Serialize(new
+                {
+                    status = report.Status.ToString(),
+                    checks = report.Entries.Select(e => new
+                    {
+                        name = e.Key,
+                        status = e.Value.Status.ToString(),
+                        exception = e.Value.Exception?.Message,
+                        duration = e.Value.Duration.ToString()
+                    })
+                });
+                await context.Response.WriteAsync(result);
+            }
+        });
+
+        app.MapHealthChecks("/health/ready", new HealthCheckOptions
+        {
+            Predicate = check => check.Tags.Contains("ready")
+        });
+
+        app.MapHealthChecks("/health/live", new HealthCheckOptions
+        {
+            Predicate = _ => false
+        });
+
         return app;
     }
 
