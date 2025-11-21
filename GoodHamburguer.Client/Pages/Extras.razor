@@ -1,0 +1,55 @@
+@page "/extras"
+
+<PageTitle>GoodHamburguer - Extras</PageTitle>
+
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2>Extras</h2>
+        </div>
+    </div>
+
+    <ErrorMessage Message="@ErrorMessage" OnDismiss="ClearError" />
+
+    @if (IsLoading)
+    {
+        <LoadingSpinner />
+    }
+    else if (ProductsList != null && ProductsList.Items.Any())
+    {
+        <div class="row g-3 g-md-4 mb-4">
+            @foreach (var product in ProductsList.Items)
+            {
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <ProductCard Product="@product" OnAddToCart="HandleAddToCart" IsLoading="@IsAddingToCart" />
+                </div>
+            }
+        </div>
+
+        @if (ProductsList != null && ProductsList.TotalPages > 1)
+        {
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item @(CurrentPage == 1 ? "disabled" : "")">
+                        <button class="page-link" @onclick="() => ChangePage(CurrentPage - 1)" disabled="@(CurrentPage == 1)">Previous</button>
+                    </li>
+                    @for (int i = 1; i <= ProductsList.TotalPages; i++)
+                    {
+                        var pageNumber = i;
+                        <li class="page-item @(pageNumber == CurrentPage ? "active" : "")">
+                            <button class="page-link" @onclick="() => ChangePage(pageNumber)">@pageNumber</button>
+                        </li>
+                    }
+                    <li class="page-item @(CurrentPage == ProductsList.TotalPages ? "disabled" : "")">
+                        <button class="page-link" @onclick="() => ChangePage(CurrentPage + 1)" disabled="@(CurrentPage == ProductsList.TotalPages)">Next</button>
+                    </li>
+                </ul>
+            </nav>
+        }
+    }
+    else if (!IsLoading)
+    {
+        <div class="alert alert-info">No extras found.</div>
+    }
+</div>
+

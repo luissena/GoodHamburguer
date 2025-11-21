@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="GoodHamburguer.Api/GoodHamburguer.Api.csproj" />
+  <Project Path="GoodHamburguer.Client/GoodHamburguer.Client.csproj" />
+  <Project Path="GoodHamburguer.Domain.Tests/GoodHamburguer.Domain.Tests.csproj" />
+  <Project Path="GoodHamburguer.Domain/GoodHamburguer.Domain.csproj" />
+</Solution>

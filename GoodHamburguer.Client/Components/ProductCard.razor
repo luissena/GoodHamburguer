@@ -1,0 +1,16 @@
+<div class="card h-100 shadow-sm">
+    <div class="card-body d-flex flex-column">
+        <h5 class="card-title text-break">@Product.Name</h5>
+        <p class="card-text text-muted mb-2 text-break">@Product.Category.Name</p>
+        <p class="card-text fw-bold fs-4 mb-auto">@Product.Price.ToString("C")</p>
+        <button class="btn btn-outline-primary mt-3 w-100" @onclick="HandleAddToCart" disabled="@IsLoading">
+            @if (IsLoading)
+            {
+                <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+            }
+            <span class="d-none d-sm-inline">Add to Cart</span>
+            <span class="d-sm-none">Add</span>
+        </button>
+    </div>
+</div>
+

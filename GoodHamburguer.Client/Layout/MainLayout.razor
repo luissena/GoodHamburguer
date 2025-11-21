@@ -1,0 +1,25 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+    <div class="sidebar @(IsMenuOpen ? "show" : "")">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <button class="menu-toggle" @onclick="ToggleMenu" aria-label="Toggle menu">
+                <span>☰</span>
+            </button>
+            <h4 class="mb-0">GoodHamburguer</h4>
+        </div>
+
+        <article class="content">
+            @Body
+        </article>
+    </main>
+    
+    @if (IsMenuOpen)
+    {
+        <div class="sidebar-overlay" @onclick="CloseMenu"></div>
+    }
+</div>

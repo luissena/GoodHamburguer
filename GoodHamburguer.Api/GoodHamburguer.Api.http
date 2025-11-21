@@ -1,0 +1,139 @@
+@GoodHamburguer.Api_HostAddress = http://localhost:5010
+
+### ====================================
+### CATEGORIES
+### ====================================
+
+### Criar Categoria
+POST {{GoodHamburguer.Api_HostAddress}}/api/categories
+Content-Type: application/json
+
+{
+  "name": "Hambúrgueres"
+}
+
+###
+
+### Listar Todas as Categorias
+GET {{GoodHamburguer.Api_HostAddress}}/api/categories
+Accept: application/json
+
+###
+
+### Obter Categoria por ID
+GET {{GoodHamburguer.Api_HostAddress}}/api/categories/{{categoryId}}
+Accept: application/json
+
+###
+
+### Atualizar Categoria
+PUT {{GoodHamburguer.Api_HostAddress}}/api/categories/{{categoryId}}
+Content-Type: application/json
+
+{
+  "name": "Bebidas"
+}
+
+###
+
+### Deletar Categoria
+DELETE {{GoodHamburguer.Api_HostAddress}}/api/categories/{{categoryId}}
+
+###
+
+### ====================================
+### PRODUCTS
+### ====================================
+
+### Criar Produto
+POST {{GoodHamburguer.Api_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Hambúrguer Clássico",
+  "categoryId": "{{categoryId}}",
+  "price": 25.50
+}
+
+###
+
+### Listar Produtos (Primeira Página)
+GET {{GoodHamburguer.Api_HostAddress}}/api/products?page=1&pageSize=10
+Accept: application/json
+
+###
+
+### Listar Produtos (Segunda Página)
+GET {{GoodHamburguer.Api_HostAddress}}/api/products?page=2&pageSize=10
+Accept: application/json
+
+###
+
+### Listar Produtos (Página com tamanho personalizado)
+GET {{GoodHamburguer.Api_HostAddress}}/api/products?page=1&pageSize=5
+Accept: application/json
+
+###
+
+### Obter Produto por ID
+GET {{GoodHamburguer.Api_HostAddress}}/api/products/{{productId}}
+Accept: application/json
+
+###
+
+### Atualizar Produto (Todos os campos)
+PUT {{GoodHamburguer.Api_HostAddress}}/api/products/{{productId}}
+Content-Type: application/json
+
+{
+  "name": "Hambúrguer Premium",
+  "categoryId": "{{categoryId}}",
+  "price": 35.00
+}
+
+###
+
+### Atualizar Produto (Apenas Nome)
+PUT {{GoodHamburguer.Api_HostAddress}}/api/products/{{productId}}
+Content-Type: application/json
+
+{
+  "name": "Hambúrguer Especial"
+}
+
+###
+
+### Atualizar Produto (Apenas Preço)
+PUT {{GoodHamburguer.Api_HostAddress}}/api/products/{{productId}}
+Content-Type: application/json
+
+{
+  "price": 30.00
+}
+
+###
+
+### Atualizar Produto (Apenas Categoria)
+PUT {{GoodHamburguer.Api_HostAddress}}/api/products/{{productId}}
+Content-Type: application/json
+
+{
+  "categoryId": "{{categoryId}}"
+}
+
+###
+
+### Deletar Produto
+DELETE {{GoodHamburguer.Api_HostAddress}}/api/products/{{productId}}
+
+###
+
+### ====================================
+### SWAGGER
+### ====================================
+
+### Acessar Swagger UI
+GET {{GoodHamburguer.Api_HostAddress}}/swagger
+Accept: text/html
+
+###

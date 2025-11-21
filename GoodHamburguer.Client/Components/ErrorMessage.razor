@@ -1,0 +1,8 @@
+@if (!string.IsNullOrWhiteSpace(Message))
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @Message
+        <button type="button" class="btn-close" @onclick="HandleDismiss"></button>
+    </div>
+}
+

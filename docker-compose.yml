@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: GoodHamburguer.Api/Dockerfile
+    container_name: goodhamburguer-api
+    ports:
+      - "5010:5010"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5010
+    networks:
+      - goodhamburguer-network
+
+  client:
+    build:
+      context: .
+      dockerfile: GoodHamburguer.Client/Dockerfile
+    container_name: goodhamburguer-client
+    ports:
+      - "5218:5218"
+    environment:
+      - ApiBaseAddress=http://api:5010
+    depends_on:
+      - api
+    networks:
+      - goodhamburguer-network
+
+networks:
+  goodhamburguer-network:
+    driver: bridge
+
