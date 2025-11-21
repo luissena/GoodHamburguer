@@ -1,6 +1,5 @@
 using GoodHamburguer.Domain.Entities;
 using GoodHamburguer.Domain.Exceptions;
-using GoodHamburguer.Domain.ValueObjects;
 using GoodHamburguer.Domain;
 using Xunit;
 
