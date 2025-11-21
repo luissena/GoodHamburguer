@@ -1,5 +1,4 @@
 using GoodHamburguer.Domain.Common;
-using Xunit;
 
 namespace GoodHamburguer.Domain.Tests.Common;
 

@@ -1,7 +1,5 @@
 using GoodHamburguer.Domain.Entities;
 using GoodHamburguer.Domain.Exceptions;
-using GoodHamburguer.Domain;
-using Xunit;
 
 namespace GoodHamburguer.Domain.Tests.Entities;
 

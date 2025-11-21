@@ -1,6 +1,4 @@
 using GoodHamburguer.Domain.Configuration;
-using GoodHamburguer.Domain.Entities;
-using Xunit;
 
 namespace GoodHamburguer.Domain.Tests.Configuration;
 
