@@ -1,34 +1,55 @@
-version: '3.8'
-
 services:
   api:
     build:
       context: .
       dockerfile: GoodHamburguer.Api/Dockerfile
+      args:
+        BUILD_CONFIGURATION: Release
     container_name: goodhamburguer-api
+    hostname: api
     ports:
       - "5010:5010"
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT:-Development}
       - ASPNETCORE_URLS=http://+:5010
+      - DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
     networks:
       - goodhamburguer-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5010/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
   client:
     build:
       context: .
       dockerfile: GoodHamburguer.Client/Dockerfile
+      args:
+        BUILD_CONFIGURATION: Release
     container_name: goodhamburguer-client
+    hostname: client
     ports:
       - "5218:5218"
     environment:
       - ApiBaseAddress=http://api:5010
-    depends_on:
-      - api
     networks:
       - goodhamburguer-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:5218/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    depends_on:
+      api:
+        condition: service_healthy
 
 networks:
   goodhamburguer-network:
     driver: bridge
+    name: goodhamburguer-network
 
